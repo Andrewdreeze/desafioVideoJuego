@@ -8,6 +8,25 @@ const GameFilters = ({ applyFilters }) => {
   const [platformFilter, setPlatformFilter] = useState("")
   const [isExpanded, setIsExpanded] = useState(false)
 
+  const popularGenres = [
+    { id: 4, name: "Acción" },
+    { id: 3, name: "Aventura" },
+    { id: 5, name: "RPG" },
+    { id: 2, name: "Shooter" },
+    { id: 10, name: "Estrategia" },
+    { id: 14, name: "Simulación" },
+    { id: 1, name: "Carreras" },
+    { id: 15, name: "Deportes" },
+  ]
+
+  const popularPlatforms = [
+    { id: 4, name: "PC" },
+    { id: 187, name: "PlayStation 5" },
+    { id: 18, name: "PlayStation 4" },
+    { id: 1, name: "Xbox One" },
+    { id: 186, name: "Xbox Series S/X" },
+    { id: 7, name: "Nintendo Switch" },
+  ]
 
   const handleFilterApply = () => {
     applyFilters({
