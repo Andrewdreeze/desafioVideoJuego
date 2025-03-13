@@ -1,16 +1,17 @@
-// src/App.jsx
-import React from 'react';
-import { Routes, Route } from 'react-router-dom'; // Importa Routes y Route
-import HomePage from './pages/HomePage';
-import GameDetailsPage from './pages/GameDetailsPage';
+import { Routes, Route } from "react-router-dom"
+import HomePage from "./pages/HomePage"
+import GameDetailsPage from "./pages/GameDetailsPage"
 
 const App = () => {
   return (
-    <Routes>
-      <Route path="/" element={<HomePage />} />
-      <Route path="/game/:gameId" element={<GameDetailsPage />} />
-    </Routes>
-  );
-};
+    <div className="app-wrapper">
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/game/:gameId" element={<GameDetailsPage />} />
+      </Routes>
+    </div>
+  )
+}
 
-export default App;
+export default App
+

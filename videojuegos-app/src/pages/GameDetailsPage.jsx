@@ -1,22 +1,37 @@
-// src/pages/GameDetailsPage.jsx
-import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import { fetchGameInfo } from '../services/rawgApiService';
-import GameDetailsView from '../components/GameDetailsView';
+"use client"
+
+import { useEffect, useState } from "react"
+import { useParams } from "react-router-dom"
+import { fetchGameInfo } from "../services/rawgApiService"
+import GameDetailsView from "../components/GameDetailsView"
 
 const GameDetailsPage = () => {
-  const { gameId } = useParams();
-  const [game, setGame] = useState(null);
+  const { gameId } = useParams()
+  const [game, setGame] = useState(null)
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const loadGame = async () => {
-      const data = await fetchGameInfo(gameId);
-      setGame(data);
-    };
-    loadGame();
-  }, [gameId]);
+      setIsLoading(true)
+      const data = await fetchGameInfo(gameId)
+      setGame(data)
+      setIsLoading(false)
+    }
+    loadGame()
+  }, [gameId])
 
-  return <GameDetailsView game={game} />;
-};
+  return (
+    <div className="container">
+      <header className="app-header">
+        <h1 className="app-title">Desafio VideoJuegos</h1>
+      </header>
 
-export default GameDetailsPage;
+      {isLoading ? <div className="loading">Cargando detalles del juego...</div> : <GameDetailsView game={game} />}
+    </div>
+  )
+}
+
+export default GameDetailsPage
+
+
+

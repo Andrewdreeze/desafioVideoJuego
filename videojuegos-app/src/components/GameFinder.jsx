@@ -1,28 +1,28 @@
-// src/components/GameFinder.jsx
-import React, { useState } from 'react';
+"use client"
 
-/**
- * Componente GameFinder: Una barra de búsqueda para encontrar videojuegos.
- */
+import { useState } from "react"
+
 const GameFinder = ({ onSearch }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+  const [searchQuery, setSearchQuery] = useState("")
 
   const handleFormSubmit = (e) => {
-    e.preventDefault();
-    onSearch(searchQuery);
-  };
+    e.preventDefault()
+    onSearch(searchQuery)
+  }
 
   return (
     <form onSubmit={handleFormSubmit} className="game-finder">
       <input
         type="text"
-        placeholder="Buscar videojuegos..."
+        placeholder="Busca un Videojuego..."
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
+        aria-label="Buscar videojuegos"
       />
       <button type="submit">Buscar</button>
     </form>
-  );
-};
+  )
+}
 
-export default GameFinder;
+export default GameFinder
+
